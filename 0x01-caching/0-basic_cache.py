@@ -3,6 +3,7 @@
 BasicCaching = __import__('base_caching').BaseCaching
 
 class BasicCache(BasicCaching):
+    """ 0-main """
     def __init__(self):
         super().__init__()
 
