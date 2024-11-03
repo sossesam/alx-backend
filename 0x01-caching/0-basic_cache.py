@@ -8,12 +8,14 @@ class BasicCache(BasicCaching):
         super().__init__()
 
     def put(self, key, item):
+        """ 0-main """
         if key == None or item == None:
             pass
         else:
             self.cache_data[key] = item
 
     def get(self, key):
+        """ 0-main """
         if self.cache_data.get(key) == None or key == None:
             return None
         else:
