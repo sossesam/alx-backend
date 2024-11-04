@@ -3,6 +3,7 @@
 
 BaseCaching = __import__('base_caching').BaseCaching
 
+
 class FIFOCache(BaseCaching):
     """ 0-main is working"""
     def __init__(self, *args, **kwargs):
@@ -23,7 +24,6 @@ class FIFOCache(BaseCaching):
             else:
                 self.cache_data[key] = item
                 self.memlist.append(key)
-                
         else:
             pass
 
