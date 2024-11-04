@@ -18,9 +18,12 @@ class FIFOCache(BaseCaching):
                 removed_key = self.memlist.pop(0)
                 del self.cache_data[removed_key]
                 print(f"DISCARD: {removed_key}")
+                self.cache_data[key] = item
                 self.memlist.append(key)
             else:
+                self.cache_data[key] = item
                 self.memlist.append(key)
+                
         else:
             pass
 
