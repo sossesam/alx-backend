@@ -12,9 +12,7 @@ class FIFOCache(BaseCaching):
     def put(self, key, item):
         """ 0-main is working"""
 
-        if key is None or item is None:
-            pass
-        else:
+        if key and item:
             self.cache_data[key] = item
             if len(self.memlist) > BaseCaching.MAX_ITEMS:
                 removed_key = self.memlist.pop(0)
@@ -23,6 +21,8 @@ class FIFOCache(BaseCaching):
                 self.memlist.append(key)
             else:
                 self.memlist.append(key)
+        else:
+            pass
 
     def get(self, key):
         """ 0-main is working"""
