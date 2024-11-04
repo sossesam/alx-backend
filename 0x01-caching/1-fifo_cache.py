@@ -1,34 +1,42 @@
-#!/usr/bin/python3
-""" 0-main is working"""
-
-BaseCaching = __import__('base_caching').BaseCaching
+#!/usr/bin/env python3
+"""
+FIFOCache module
+"""
+from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    """ 0-main is working"""
-    def __init__(self, *args, **kwargs):
+    """
+    FIFOCache class that inherits from BaseCaching
+    """
+
+    def __init__(self):
+        """
+        Initialize the FIFOCache
+        """
         super().__init__()
-        self.memlist = []
+        self.queue = []
 
     def put(self, key, item):
-        """ 0-main is working"""
+        """
+        Add an item in the cache
+        """
+        if key is None or item is None:
+            return
 
-        if key and item:
-            self.cache_data[key] = item
-            if len(self.memlist) > BaseCaching.MAX_ITEMS:
-                removed_key = self.memlist.pop(0)
-                del self.cache_data[removed_key]
-                print(f"DISCARD: {removed_key}")
-                
-            
-            self.cache_data[key] = item
-            self.memlist.append(key)
-        else:
-            pass
+        if len(self.cache_data) >= self.MAX_ITEMS:
+            discarded_key = self.queue.pop(0)
+            del self.cache_data[discarded_key]
+            print("DISCARD:", discarded_key)
+
+        self.cache_data[key] = item
+        self.queue.append(key)
 
     def get(self, key):
-        """ 0-main is working"""
-        if self.cache_data.get(key) is None or key is None:
+        """
+        Get an item by key
+        """
+        if key is None or key not in self.cache_data:
             return None
-        else:
-            return self.cache_data[key]
+
+        return self.cache_data[key]
