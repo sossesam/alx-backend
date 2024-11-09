@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+""" this is a documentation """
+
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -6,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    """ this is a documentation"""
+    """ this is a documentation """
     return render_template("0-index.html")
 
 
