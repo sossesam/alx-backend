@@ -3,6 +3,7 @@
 
 BaseCaching = __import__('base_caching').BaseCaching
 
+
 class LIFOCache(BaseCaching):
     """ 0-main is working"""
     def __init__(self, *args, **kwargs):
@@ -14,9 +15,8 @@ class LIFOCache(BaseCaching):
         """ 0-main is working"""
         if key is None or item is None:
             return
-        
-            
-        if len(self.memlist) == BaseCaching.MAX_ITEMS :
+
+        if len(self.memlist) == BaseCaching.MAX_ITEMS:
             if key in self.memlist:
                 self.memlist.remove(key)
                 self.memlist.append(key)
@@ -28,8 +28,7 @@ class LIFOCache(BaseCaching):
                 self.memlist.append(key)
                 self.cache_data[key] = item
                 print(f"DISCARD: {removed_key}")
-            
-            
+
         else:
             self.memlist.append(key)
             self.cache_data[key] = item
@@ -40,4 +39,3 @@ class LIFOCache(BaseCaching):
             return None
         else:
             return self.cache_data[key]
-        
