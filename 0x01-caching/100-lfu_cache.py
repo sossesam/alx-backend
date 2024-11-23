@@ -11,7 +11,6 @@ class LFUCache(BaseCaching):
         super().__init__()
         self.memlist = {}
 
-
     def put(self, key, item):
         """ 0-main is working"""
         if key is None or item is None:
@@ -23,17 +22,11 @@ class LFUCache(BaseCaching):
                 self.cache_data[key] = item
 
             else:
-                #get the key with the least value 
                 lfu = min(self.memlist, key=self.memlist.get)
-
-                #remove the found key form the cache
                 del self.cache_data[lfu]
-                #remove the found key from the memlist
-                del self.memlist[lfu] 
-                #add the new key to the memlist and set value to 0
+                del self.memlist[lfu]
                 self.memlist[key] = 0
                 self.cache_data[key] = item
-               
                 print(f"DISCARD: {lfu}")
 
         else:
