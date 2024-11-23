@@ -23,7 +23,7 @@ class LIFOCache(BaseCaching):
                 self.cache_data[key] = item
 
             else:
-                removed_key = self.memlist.pop(3)
+                removed_key = self.memlist.pop(BaseCaching.MAX_ITEMS - 1)
                 del self.cache_data[removed_key]
                 self.memlist.append(key)
                 self.cache_data[key] = item
