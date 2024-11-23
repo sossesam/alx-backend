@@ -6,11 +6,12 @@ BaseCaching = __import__('base_caching').BaseCaching
 class LIFOCache(BaseCaching):
     """ 0-main is working"""
     def __init__(self, *args, **kwargs):
+        """ 0-main is working"""
         super().__init__()
         self.memlist = []
 
     def put(self, key, item):
-
+        """ 0-main is working"""
         if key is None or item is None:
             return
         
