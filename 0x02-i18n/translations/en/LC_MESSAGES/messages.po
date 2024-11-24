@@ -278,15 +278,13 @@ msgid_plural "{len_type} values are required, but {len_value} were given."
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/2-index.html:6 templates/3-index.html:4
+#: 6 templates/3-index.html:4
 msgid "Welcome to Holberton"
 msgstr "Welcome to Holberton"
 
-#: templates/2-index.html:9 templates/3-index.html:7
+#: 9 templates/3-index.html:7
 msgid "Hello world"
 msgstr "Hello world"
 
-#: templates/2-index.html:12
-msgid "Computer"
-msgstr "Computer"
+
 
