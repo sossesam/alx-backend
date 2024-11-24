@@ -2,7 +2,6 @@
 """ this is a documentation """
 
 
-
 from unittest import result
 from flask import Flask, render_template, request
 from flask_babel import Babel, numbers, gettext
@@ -23,7 +22,7 @@ babel = Babel(app)
 @babel.localeselector
 def get_locale():
     """ this is a documentation """
-    
+
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
@@ -33,8 +32,8 @@ def home():
     home_title = gettext("home_title")
     home_header = gettext("home_header")
 
-    
-    return render_template("3-index.html", home_header = home_header, home_title = home_title)
+    return render_template("3-index.html",
+                           home_header=home_header, home_title=home_title)
 
 
 if __name__ == "__main__":
