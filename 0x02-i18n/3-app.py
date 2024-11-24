@@ -23,15 +23,18 @@ babel = Babel(app)
 @babel.localeselector
 def get_locale():
     """ this is a documentation """
-   
+    
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route("/")
 def home():
     """ this is a documentation """
+    home_title = gettext("home_title")
+    home_header = gettext("home_header")
+
     
-    return render_template("3-index.html")
+    return render_template("3-index.html", home_header = home_header, home_title = home_title)
 
 
 if __name__ == "__main__":
