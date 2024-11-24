@@ -30,10 +30,8 @@ def get_locale():
 @app.route("/")
 def home():
     """ this is a documentation """
-    us_num = numbers.format_decimal(1.2345, locale="en_US")
-    se_num = numbers.format_decimal(1.2345, locale="sv_SE")
-    results = {"us_num": us_num, "se_num": se_num}
-    return render_template("2-index.html", result = results)
+    
+    return render_template("3-index.html")
 
 
 if __name__ == "__main__":
